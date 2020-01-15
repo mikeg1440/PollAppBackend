@@ -31,7 +31,8 @@ group :development, :test do
   gem 'dotenv-rails'
   gem 'pry-moves'
   gem "better_errors"
-  gem "binding_of_caller"  
+  gem "binding_of_caller"
+  gem 'faker'
 end
 
 group :development do
