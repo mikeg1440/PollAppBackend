@@ -18,7 +18,7 @@ class Api::V1::PollsController < ApplicationController
   private
 
   def poll_params
-    params.require(:poll).permit(:title, :user_id)
+    params.require(:poll).permit(:title, :author, :question, answers_attributes: [:content])
   end
 
 end
