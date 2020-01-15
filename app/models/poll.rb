@@ -1,6 +1,6 @@
 class Poll < ApplicationRecord
-  belongs_to :user
-  has_many :questions
-  has_many :answers, through: :questions
-  has_many :responses 
+  has_many :answers
+  has_many :responses
+
+  accepts_nested_attributes_for :answers
 end
