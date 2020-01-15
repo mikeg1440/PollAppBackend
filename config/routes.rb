@@ -4,13 +4,11 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
 
-      resources :user
       resources :polls do
-        resources :questions do
-          resources :answers
-          resources :submissions
-        end
+        resources :submissions
       end
+
     end
   end
+  
 end
