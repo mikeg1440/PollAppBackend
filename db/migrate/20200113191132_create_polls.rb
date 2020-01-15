@@ -2,7 +2,8 @@ class CreatePolls < ActiveRecord::Migration[6.0]
   def change
     create_table :polls do |t|
       t.string :title
-      t.references :user, null: false, foreign_key: true
+      t.string :author
+      t.string :question
 
       t.timestamps
     end
