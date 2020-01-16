@@ -1,7 +1,7 @@
 class Api::V1::SubmissionsController < ApplicationController
 
   def index
-    submissions = Submission.find_by(poll_id: params[:poll_id])
+    submissions = Submission.where(poll_id: params[:poll_id])
     render json: submissions
   end
 
