@@ -6,7 +6,12 @@ class Api::V1::SubmissionsController < ApplicationController
   end
 
   def create
-    Submission.create(submission_params)
+    submission = Submission.create(submission_params)
+    if submission.valid?
+      render json: submission, status: :created
+    else
+      render json: submission.errors.full_messages, status: :bad_request
+    end
   end
 
   private
