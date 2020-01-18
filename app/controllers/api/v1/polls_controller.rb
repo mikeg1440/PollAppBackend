@@ -7,7 +7,11 @@ class Api::V1::PollsController < ApplicationController
 
   def create
     poll = Poll.create(poll_params)
-    render json: poll, status: 200
+    if poll.valid?
+      render json: poll, status: :created
+    else
+      render json: poll.errors.full_messages, status: :bad_request
+    end
   end
 
   def show
