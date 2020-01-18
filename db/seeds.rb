@@ -30,6 +30,15 @@ starwars_poll.save
 
 lor_poll = Poll.create(title: 'Favorite Lord of The Rings Charecter', author: Faker::Name.first_name, question: 'Who is your favorite charecter in the Lord of the Rings stories?')
 
-(1..6).each {|num| lor_poll.answers.build(content: Faker::Movies::LordOfTheRings.character)}
+(1..6).each do |num|
+
+  # loop until we have a charecter that doesn't exist already as a answer
+  charecter = Faker::Movies::LordOfTheRings.character
+  until !Answer.exists?(content: charecter)
+    charecter = Faker::Movies::LordOfTheRings.character
+  end
+
+  lor_poll.answers.build(content: character)
+end
 
 lor_poll.save
