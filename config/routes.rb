@@ -4,11 +4,11 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
 
-      resources :polls do
-        resources :submissions
+      resources :polls, only: [:index, :create, :show] do
+        resources :submissions, only: [:index, :create]
       end
 
     end
   end
-  
+
 end
