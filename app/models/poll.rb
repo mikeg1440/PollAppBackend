@@ -6,5 +6,6 @@ class Poll < ApplicationRecord
 
   validates :title, presence: true
   validates :author, presence: true
+  validates :question, presence: true
   
 end
